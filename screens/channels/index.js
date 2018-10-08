@@ -8,7 +8,7 @@ import Header from '../../components/header'
 const Wrapper = styled.View`
   flex-direction: row;
   flex: 1;
-  background: ${props => props.theme.colors.p900};
+  background: ${props => props.theme.colors.p800};
 `;
 
 const List = styled.View`
@@ -32,28 +32,28 @@ class Channels extends React.Component {
         <Wrapper>
           <List>
             <AvatarWrapper
-              onPress={() => this.props.navigation.navigate("Main")}
+              onPress={() => this.props.navigation.navigate("Main", {name: 'p2p-Team'})}
             >
               <Img source={{ uri: "https://picsum.photos/200" }} />
-              <AvatarTitle>test </AvatarTitle>
+              <AvatarTitle>p2p-Team </AvatarTitle>
             </AvatarWrapper>
             <AvatarWrapper
-              onPress={() => this.props.navigation.navigate("Main")}
+              onPress={() => this.props.navigation.navigate("Main", {name: 'Moodlenet'})}
             >
               <Img source={{ uri: "https://picsum.photos/200" }} />
-              <AvatarTitle>test </AvatarTitle>
+              <AvatarTitle>Moodlenet </AvatarTitle>
             </AvatarWrapper>
             <AvatarWrapper
-              onPress={() => this.props.navigation.navigate("Main")}
+              onPress={() => this.props.navigation.navigate("Main", {name: 'MAN'})}
             >
               <Img source={{ uri: "https://picsum.photos/200" }} />
-              <AvatarTitle>test </AvatarTitle>
+              <AvatarTitle>MAN </AvatarTitle>
             </AvatarWrapper>
             <AvatarWrapper
-              onPress={() => this.props.navigation.navigate("Main")}
+              onPress={() => this.props.navigation.navigate("Main", {name: 'M^C^O'})}
             >
               <Img source={{ uri: "https://picsum.photos/200" }} />
-              <AvatarTitle>test </AvatarTitle>
+              <AvatarTitle>M^C^O </AvatarTitle>
             </AvatarWrapper>
           </List>
         </Wrapper>
