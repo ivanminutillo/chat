@@ -1,6 +1,7 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import Home from './screens/home'
+import Channels from './screens/channels'
 import { createStackNavigator, createDrawerNavigator } from "react-navigation";
 import Header from './components/header'
 import styled, { ThemeProvider } from "styled-components";
@@ -42,28 +43,17 @@ const baseStackConfig = {
     //       }
     //     : {}
     // ],
-    header: headerProps => {
-      return (
-        <ThemeProvider theme={dark}>
-           <View
-              style={{
-                marginTop: 20, marginBottom: 0
-              }}
-            >
-            <Header {...headerProps} />
-          </View>
-        </ThemeProvider>
-      );
-    }
+
   })
 };
 
 const MainStack = createStackNavigator(
   {
-    Main: Home
+    Main: Home,
+    Channels: Channels
   },
   {
-    initialRouteName: "Main",
+    initialRouteName: "Channels",
     ...baseStackConfig
   }
 );

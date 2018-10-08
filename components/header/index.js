@@ -9,7 +9,7 @@ const Navbar = styled.View`
   background-color: #36393f;
   flex-direction: column;
   flex-direction: row;
-  height: 50px;
+  height: 70px;
   border-bottom-width: 1px;
   border-bottom-color: rgba(0,0,0,.2);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
@@ -34,7 +34,7 @@ const HeaderTitle = styled.Text`
 `;
 
 const TitleContent = styled.Text`
-  line-height: 50px;
+  line-height: 90px;
   color: ${props => props.theme.colors.p100};
   font-weight: 700;
   font-size: 16px;
@@ -42,7 +42,7 @@ const TitleContent = styled.Text`
 `;
 const TitleSpan = styled.Text`
   padding-right: 8px;
-  line-height: 50px;
+  line-height: 90px;
   color: ${props => props.theme.colors.p200};
   font-weight: 400;
   font-style: italic;
@@ -52,28 +52,31 @@ const TitleSpan = styled.Text`
 
 const Left = styled.TouchableOpacity`
   width: 20px;
-  margin-top: 16px;
+  margin-top: 36px;
   margin-right: 8px;
 `;
 
 const RightIcon = styled.TouchableOpacity`
   width: 20px;
   margin-top: 14px;
-  margin-right: 16px;
+  margin-right: 26px;
 `;
 
-const HeaderRight = props => (
-  <WrapperHeaderRight>
-    <HeaderTitle>
-      <TitleSpan># </TitleSpan>
-      <TitleContent>general</TitleContent>
-    </HeaderTitle>
-    <RightIcon onPress={() => alert("This is a button!")}>
+{/* <RightIcon onPress={() => alert("This is a button!")}>
       <Feather size={20} name="search" color="#99ADC6" />
     </RightIcon>
     <RightIcon onPress={() => alert("This is a button!")}>
       <Feather size={20} name="sidebar" color="#99ADC6" />
-    </RightIcon>
+    </RightIcon> */}
+
+
+const HeaderRight = ({title, rightIcons, isTag}) => (
+  <WrapperHeaderRight>
+    <HeaderTitle>
+      {isTag ? <TitleSpan># </TitleSpan> : null}
+      <TitleContent>{title}</TitleContent>
+    </HeaderTitle>
+    {rightIcons}
   </WrapperHeaderRight>
 );
 
@@ -90,27 +93,19 @@ const HeaderLeft = ({ index, navigation }) => {
           <Feather size={20} name="arrow-left" color="#99ADC6" />
         </Left>
       )}
-      {/* <Img src={`https://picsum.photos/200/300`} />
-      <Title>ivan minutillo</Title>
-      <LeftSpan>
-        <Feather size={20} name="chevron-down" color="#99ADC6" />
-      </LeftSpan> */}
     </WrapperHeaderLeft>
   );
 };
 
 const Header = props => {
-  const { index, navigation } = props;
+  const { index, navigation, title, rightIcons, isTag } = props;
   return (
     <Navbar>
-      <ComposedHeaderLeft index={index} navigation={navigation} />
-      {/* <HeaderLeft index={index} navigation={navigation} /> */}
-      <HeaderRight />
+      <HeaderLeft index={index} navigation={navigation} />
+      <HeaderRight title={title} isTag={isTag} rightIcons={rightIcons} />
     </Navbar>
   );
 };
-
-const ComposedHeaderLeft = compose()(HeaderLeft);
 
 
 export default Header;

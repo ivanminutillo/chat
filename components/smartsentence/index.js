@@ -1,18 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import { Platform, TextInput } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
-const Input = styled.View`
+const Wrapper = styled.View`
   flex: 1;
   height: 50px;
-  margin-top: 20px;
   border-width: 0;
   background-color: #484b51;
-  flex-direction: column;
+  flex-direction: row;
   margin-bottom:0;
+  padding: 0 8px;
+`;
+const Icon = styled.View`
+  width: 20px;
+  margin-top: 15px;
 `;
 
-const Test = styled.TextInput`
+const Input = styled.TextInput`
   flex: 1;
   height: 50px;
   border-width: 0;
@@ -20,12 +24,18 @@ const Test = styled.TextInput`
   padding: 0 16px;
   color: #f0f0f0;
   flex-direction: column;
+
 `;
 
 export default props => {
   return (
-        <Input>
-            <Test placeholder="heylaaaa" />
-        </Input>
+        <Wrapper>
+            <Icon>
+               <Feather size={20} name="grid" color="#f0f0f050" />
+            </Icon>
+            <Input underlineColorAndroid="#484b51"
+    selectionColor="#484b51" placeholder="Message" />
+            <Icon><Feather size={20} name="arrow-right" color="#f0f0f0" /></Icon>
+        </Wrapper>
   );
 };
